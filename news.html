@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Santo Niño de Tondo Parish</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+<header>
+  <nav>
+
+    <div class="logo-container">
+  <a href="index.html" class="logo-link">
+    <img src="images/Logo.2.png" alt="Tondo Church Logo" class="logo">
+  </a>
+  
+</div>    
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="sacraments.html">Sacraments</a></li>
+      <li><a href="info.html">More Info</a></li>
+    </ul>
+
+<div class="auth-buttons">
+  <button id="loginBtn" class="login-btn" onclick="openLogin()">Admin Login</button>
+  <button id="logoutBtn" class="logout-btn" onclick="logout()" style="display:none;">Admin Logout</button>
+</div>
+    
+  </nav>
+
+  
+
+</header>
+
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Admin Login</h2>
+    <form onsubmit="return false;">
+      <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Enter admin username" required>
+      
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter password" required>
+      
+      <button type="submit" onclick="login()">Login</button>
+      <p id="login-message" class="login-message"></p>
+    </form>
+  </div>
+</div>
+
+  <!-- News Section -->
+<section id="news" class="content">
+  <h2>News</h2>
+
+  <!-- First News Block -->
+  <div class="news-block">
+    <div class="news-text">
+      <h2>Pilgrims’ Guide and Announcements</h2>
+      <p class="hashtags">#VivaSantoNiño  #ArchdioceseofManila  #Jubilee2025</p>
+      <p>
+        The Archdiocesan Shrine of Santo Niño welcomes all devotees as part of
+        the 2025 Jubilee celebrations. Explore our guides and announcements to
+        stay updated on church events and pilgrim schedules.
+      </p>
+    </div>
+    <div class="news-images">
+      <img src="images/guide1.jpg" alt="Pilgrim's Guide">
+      <img src="images/guide2.jpg" alt="News Poster">
+      <img src="images/guide3.jpg" alt="Announcement">
+      <img src="images/guide4.jpg" alt="Event">
+    </div>
+  </div>
+
+  <!-- Second News Block -->
+  <div class="news-block">
+    <div class="news-text">
+      <h2>Shrine Activities for the Month of: October<br></h2> 
+      <h3>Buwan ng Santo Rosaryo sa Dambana</h3>
+      <p>
+        Narito ang mga gawain sa pagdiriwang ng Kapistahan ng Mahal na Birhen ng
+        Santo Rosaryo. Ang panalanging pantriduo ay gaganapin mula ika-4 hanggang
+        ika-6 ng Oktubre bago mag-simula ang unang misa sa hapon. Ang prusisyon
+        kaugnay ng kapistahan ay gaganapin sa ika-4 ng Oktubre sa ganap na ika-7
+        ng gabi. Sa araw ng Kapistahan ng Mahal na Birhen ng Santo Rosaryo na
+        ipagdiriwang sa ika-7 ng Oktubre, ang Misa Solemne ay gaganapin sa ika-6
+        ng gabi. Inaanyayahan ang lahat na makiisa sa pananalangin, dumalo sa mga
+        liturhikal na gawain ng simbahan at patuloy na palalimin ang ating
+        pagdedebosyon sa Mahal na Birheng Maria.
+      </p>
+      <p class="quote">
+        𝐌𝐚𝐡𝐚𝐥 𝐧𝐚 𝐁𝐢𝐫𝐡𝐞𝐧 𝐧𝐠 𝐒𝐚𝐧𝐭𝐨 𝐑𝐨𝐬𝐚𝐫𝐲𝐨, 𝐢𝐩𝐚𝐧𝐚𝐥𝐚𝐧𝐠𝐢𝐧 𝐦𝐨 𝐤𝐚𝐦𝐢!
+      </p>
+    </div>
+    <div class="news-images">
+      <img src="images/rosary1.jpg" alt="Pilgrim's Guide">
+      <img src="images/rosary2.jpg" alt="News Poster">
+      <img src="images/rosary3.jpg" alt="Announcement">
+      <img src="images/rosary4.jpg" alt="Event">
+    </div>
+  </div>
+</section>
+
+  <footer>
+    <p>&copy; 2025 Archdiocesan Shrine of Santo Niño | All Rights Reserved</p>
+  </footer> 
+
+<script>
+  // Open and close modal
+  const modal = document.getElementById("loginModal");
+  const btn = document.getElementById("loginBtn");
+  const span = document.getElementsByClassName("close")[0];
+
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  // Simple front-end login check
+  function login() {
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+    const msg = document.getElementById('login-message');
+
+    if (user === "admin" && pass === "admin123") {
+      msg.style.color = "lightgreen";
+      msg.textContent = "✅ Login successful! Welcome, Admin.";
+      setTimeout(() => modal.style.display = "none", 1500);
+    } else {
+      msg.style.color = "salmon";
+      msg.textContent = "❌ Invalid username or password.";
+    }
+  }
+</script> 
+
+<script>
+  const adminUser = "admin";
+  const adminPass = "1234";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const isAdmin = localStorage.getItem("isAdmin") === "true";
+    const savedName = localStorage.getItem("adminName");
+    toggleAuthButtons(isAdmin, savedName);
+    if (isAdmin) showAdminAccess();
+  });
+
+  function openLogin() {
+    document.getElementById("loginModal").style.display = "flex";
+  }
+
+  function login() {
+    const user = document.getElementById("username").value.trim();
+    const pass = document.getElementById("password").value;
+    const message = document.getElementById("loginMessage");
+
+    if (user === adminUser && pass === adminPass) {
+      // Save login info
+      localStorage.setItem("isAdmin", "true");
+      localStorage.setItem("adminName", user);
+
+      // Update UI instantly (no refresh needed)
+      closeLoginModal();
+      toggleAuthButtons(true, user);
+      showAdminAccess();
+
+      // Optional feedback
+      alert(`Welcome, ${user}! You are now logged in.`);
+    } else {
+      message.textContent = "Invalid username or password.";
+    }
+  }
+
+  function logout() {
+    localStorage.removeItem("isAdmin");
+    localStorage.removeItem("adminName");
+    document.getElementById("adminContent").style.display = "none";
+    toggleAuthButtons(false);
+  }
+
+  function toggleAuthButtons(isAdmin, name = "") {
+    const loginBtn = document.getElementById("loginBtn");
+    const logoutBtn = document.getElementById("logoutBtn");
+    const welcomeText = document.getElementById("welcomeUser");
+
+    if (isAdmin) {
+      loginBtn.style.display = "none";
+      logoutBtn.style.display = "inline-block";
+      if (welcomeText) {
+        welcomeText.style.display = "inline-block";
+        welcomeText.textContent = `Welcome, ${name}!`;
+      }
+    } else {
+      loginBtn.style.display = "inline-block";
+      logoutBtn.style.display = "none";
+      if (welcomeText) welcomeText.style.display = "none";
+    }
+  }
+
+  function showAdminAccess() {
+    document.getElementById("adminContent").style.display = "block";
+  }
+
+  function closeLoginModal() {
+    document.getElementById("loginModal").style.display = "none";
+  }
+</script>
+
+<section id="adminContent" style="display:none;">
+  <h2>Welcome to Admin Access!</h2>
+  <p>You can now manage updates, upload images, and edit content here.</p>
+</section>
+
+<section id="adminContent" style="display:none;">
+  <h2><i class="fa-solid fa-tools"></i> Admin Tools</h2>
+
+  <div class="admin-tool">
+    <h3><i class="fa-solid fa-pen-to-square"></i> Edit About Section</h3>
+    <textarea id="aboutText" rows="5" placeholder="Edit the About section text..."></textarea>
+    <button onclick="saveAbout()">
+      <i class="fa-solid fa-floppy-disk"></i> Save
+    </button>
+  </div>
+
+  <div class="admin-tool">
+    <h3><i class="fa-solid fa-newspaper"></i> Add News Post</h3>
+    <input type="text" id="newsTitle" placeholder="News title" />
+    <textarea id="newsBody" rows="4" placeholder="News content"></textarea>
+    <button onclick="addNews()">
+      <i class="fa-solid fa-plus"></i> Add
+    </button>
+  </div>
+
+  <div class="admin-tool">
+    <h3><i class="fa-solid fa-camera"></i> Upload Gallery Image</h3>
+    <input type="file" id="galleryUpload" accept="image/*" />
+    <button onclick="uploadGallery()">
+      <i class="fa-solid fa-upload"></i> Upload
+    </button>
+  </div>
+</section>
+
+<script>
+  // Load saved data when page loads
+  document.addEventListener("DOMContentLoaded", () => {
+    // Load saved about text
+    const savedAbout = localStorage.getItem("aboutContent");
+    if (savedAbout) document.querySelector("#about p").innerText = savedAbout;
+
+    // Load saved news posts
+    const savedNews = JSON.parse(localStorage.getItem("newsPosts")) || [];
+    savedNews.forEach(post => renderNews(post));
+
+    // Load saved gallery images
+    const savedGallery = JSON.parse(localStorage.getItem("galleryImages")) || [];
+    savedGallery.forEach(src => renderGalleryImage(src));
+
+    // Show admin section if logged in
+    if (localStorage.getItem("isAdmin") === "true") showAdminAccess();
+  });
+
+  // === Admin Feature Functions ===
+  function saveAbout() {
+    const text = document.getElementById("aboutText").value;
+    localStorage.setItem("aboutContent", text);
+    document.querySelector("#about p").innerText = text;
+    alert("About section updated!");
+  }
+
+  function addNews() {
+    const title = document.getElementById("newsTitle").value;
+    const body = document.getElementById("newsBody").value;
+    if (!title || !body) return alert("Please enter title and content.");
+
+    const post = { title, body };
+    const posts = JSON.parse(localStorage.getItem("newsPosts")) || [];
+    posts.push(post);
+    localStorage.setItem("newsPosts", JSON.stringify(posts));
+    renderNews(post);
+
+    document.getElementById("newsTitle").value = "";
+    document.getElementById("newsBody").value = "";
+    alert("News post added!");
+  }
+
+  function renderNews(post) {
+    const container = document.querySelector("#news .cards");
+    const div = document.createElement("div");
+    div.classList.add("news-post");
+    div.innerHTML = `<h4>${post.title}</h4><p>${post.body}</p>`;
+    container.appendChild(div);
+  }
+
+  function uploadGallery() {
+    const fileInput = document.getElementById("galleryUpload");
+    const file = fileInput.files[0];
+    if (!file) return alert("Please choose an image.");
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const images = JSON.parse(localStorage.getItem("galleryImages")) || [];
+      images.push(e.target.result);
+      localStorage.setItem("galleryImages", JSON.stringify(images));
+      renderGalleryImage(e.target.result);
+      alert("Image uploaded!");
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function renderGalleryImage(src) {
+    const container = document.querySelector(".gallery-grid");
+    const imgDiv = document.createElement("div");
+    imgDiv.innerHTML = `<img src="${src}" alt="Uploaded"><p>New Upload</p>`;
+    container.appendChild(imgDiv);
+  }
+</script>
+
+</body>
+</html>

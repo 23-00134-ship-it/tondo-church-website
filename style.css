@@ -1,0 +1,1284 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:serif;
+}
+
+body {
+  background-color: #1c1c1c;
+  color: #fff;
+  line-height: 1;
+}
+
+header {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 10;
+  height: 15%;
+  width: 100%;
+  padding: 1px 1;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: auto;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 100px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: gold;
+}
+
+.hero {
+  background: url('images/tondo-church-bg.jpeg') center/cover repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 100px;
+  border-radius: 100px;
+}
+
+.content {
+  padding: 60px 1%;
+  text-align: center;
+  background: #222;
+}
+
+.content.dark {
+  background: #000;
+}
+
+.content h2 {
+  font-size: 2em;
+  margin-bottom: 100px;
+  color: gold;
+}
+
+.images, .cards, .gallery-grid, .sacraments-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.images img, .cards img, .gallery-grid img, .sacraments-grid img {
+  border-radius: 10px;
+  width: 150px;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.images img:hover, .cards img:hover, .gallery-grid img:hover, .sacraments-grid img:hover {
+  transform: scale(2);
+}
+
+.gallery-grid div, .sacraments-grid div {
+  text-align: center;
+}
+
+.info-img {
+  width: 100%;
+  border-radius: 1px;
+}
+
+footer {
+  text-align: center;
+  background: #111;
+  padding: 20px 0;
+  color: #aaa;
+}
+
+/* ==== Admin Login Section ==== */
+.login-form {
+  background: #1a1a1a;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-form .form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.login-form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: gold;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  outline: none;
+}
+
+.login-form button {
+  background: gold;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-form button:hover {
+  background: #ffdd57;
+}
+
+.login-message {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+
+/* ==== Header Button ==== */
+.login-nav-btn {
+  background: gold;
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.login-nav-btn:hover {
+  background: #ffdd57;
+}
+
+/* ==== Modal Styling ==== */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  background-color: #222;
+  margin: 10% auto;
+  padding: 30px;
+  border: 2px solid gold;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
+  color: white;
+  text-align: left;
+}
+
+.modal-content h2 {
+  text-align: center;
+  color: gold;
+}
+
+.modal-content label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: gold;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+.modal-content button {
+  width: 100%;
+  background: gold;
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background: #ffdd57;
+}
+
+.close {
+  color: gold;
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.login-message {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* ==== Header Logo Styling ==== */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* space between logo and text */
+}
+
+.logo {
+  width: 45px;  /* adjust size as needed */
+  height: 45px;
+  border-radius: 50%; /* makes it circular if desired */
+  object-fit: cover;
+}
+/* ==== Header Logo clicable ==== */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-link {
+  display: inline-block;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 0%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/* ==== Home Page Text Styling ==== */
+.hero .overlay h2 {
+  font-size: 25px;       /* Adjust size as needed (default around 2rem = 32px) */
+  line-height: 1;
+}
+
+.hero .overlay h3 {
+  font-size: 20px;     /* Slightly smaller subtitle */
+  font-weight: normal;
+  margin-top: 1px;
+}
+
+@media (max-width: 700px) {
+  /* Make text smaller on phones */
+  .hero .overlay h2 {
+    font-size: 1rem;
+  }
+  .hero .overlay h3 {
+    font-size: 1rem;
+  }
+}
+
+/* === HERO SECTION FONT CONTROL === */
+.hero .overlay {
+  text-align: center;
+  padding: 10px 20px;
+}
+
+.hero .overlay h2 {
+  font-size: 2.5rem;      /* main heading size (adjust as needed) */
+  line-height: 1.3;
+  margin: 10px 0;
+}
+
+.hero .overlay h3 {
+  font-size: 1rem;      /* subheading size */
+  font-weight: normal;
+  margin-top: 10px;
+}
+
+/* Add text shadow for readability */
+.hero .overlay h2, 
+.hero .overlay h3 {
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+}
+
+/* Responsive font scaling */
+@media (max-width: 1024px) {
+  .hero .overlay h2 { font-size: 1rem; }
+  .hero .overlay h3 { font-size: 1rem; }
+}
+
+@media (max-width: 768px) {
+  .hero .overlay h2 { font-size: 1.6rem; }
+  .hero .overlay h2 { font-size: 1rem; }
+}
+
+.hero .overlay h2:nth-of-type(1) { font-size: 2rem; }
+.hero .overlay h2:nth-of-type(2) { font-size: 2.5rem; font-weight: bold; color: gold; }
+.hero .overlay h2:nth-of-type(3) { font-size: 2.5rem; color: gold; }
+
+/* Header layout */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1px 40px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
+/* Logo + Title grouping */
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+}
+
+/* Fix overly large text */
+.title-text h1 {
+  font-size: 1rem; /* ~24px */
+  margin: 0;
+}
+
+.title-text h2 {
+  font-size: 1.2rem; /* ~19px */
+  margin: 0;
+}
+
+/* Navigation styling */
+.nav a {
+  margin: 0 10px;
+  font-size: 1rem; /* Normal readable text */
+  text-decoration: none;
+  color: white;
+}
+
+.admin-login {
+  background-color: yellow;
+  color: black;
+  border: none;
+  padding: 8px 5px;
+  border-radius: 10px;
+  font-size: 9rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* LOGIN MODAL STYLES */
+.login-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.8);
+  z-index: 1000;
+}
+
+.login-box {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+}
+
+.login-box input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.login-box button {
+  background: #e3b100;
+  border: none;
+  padding: 5px 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.logout-btn {
+  background: crimson;
+  color: white;
+  padding: 5px 5px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+nav .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+nav .logo img {
+  height: 5px;
+  width: 5px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.login-btn {
+  background: gold;
+  color: black;
+  border: none;
+  padding: 5px 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.logout-btn {
+  background: crimson;
+  color: white;
+  border: none;
+  padding: 5px 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#adminContent {
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 40px;
+  border-top: 2px solid gold;
+}
+
+.admin-tool {
+  margin-bottom: 30px;
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.admin-tool h3 {
+  color: gold;
+  margin-bottom: 10px;
+}
+
+.admin-tool input,
+.admin-tool textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.admin-tool button {
+  background: gold;
+  color: black;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.news-post {
+  background: rgba(255,255,255,0.8);
+  color: black;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+#adminContent {
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  padding: 40px;
+  border-top: 2px solid gold;
+}
+
+#adminContent h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.admin-tool {
+  margin-bottom: 30px;
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.admin-tool h3 {
+  font-size: 1.2rem;
+  color: gold;
+  margin-bottom: 10px;
+}
+
+.admin-tool i {
+  margin-right: 8px;
+}
+
+.admin-tool textarea,
+.admin-tool input[type="text"],
+.admin-tool input[type="file"] {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+}
+
+.admin-tool button {
+  background: gold;
+  color: black;
+  font-weight: bold;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.admin-tool button:hover {
+  background: #ffd84d;
+  transform: scale(1.05);
+}
+
+.admin-tool button i {
+  margin-right: 5px;
+}
+/* revised for admin log in/out button */
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+  margin-right: 20px;
+}
+
+.login-btn,
+.logout-btn {
+  font-weight: bold;
+  border: none;
+  padding: 5px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-btn {
+  background: gold;
+  color: black;
+}
+
+.logout-btn {
+  background: crimson;
+  color: white;
+}
+
+/*Additional for Home*/
+/* --- Home Slideshow --- */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slideshow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.overlay {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  text-align: center;
+  padding-top: 200px;
+}
+
+.overlay h2, .overlay h3 {
+  text-shadow: 2px 2px 5px #000;
+}
+
+
+/*About revised*/
+#about{
+  background-color: black;
+  padding: 80px 60px;
+  color: white;
+}
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px; /* space between text and images */
+  flex-wrap: wrap; /* keeps layout responsive on smaller screens */
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.about-images {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.about-images img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-images img {
+    max-width: 90%;
+  }
+}
+
+/*News Revised*/
+/* --- News Section --- */
+#news {
+  background-color:grey;
+  padding: 80px 60px;
+  color: white;
+}
+
+#news h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Each News Block (acts as a container) */
+.news-block {
+  display: flex;
+  flex-direction: column; /* stack text and images vertically */
+  align-items: center;
+  background: black;
+  padding: 25px;
+  margin-bottom: 50px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Text area styling */
+.news-text {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.news-text h3 {
+  color: #b58900;
+  margin-bottom: 8px;
+}
+
+.news-text p {
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+.news-text .hashtags {
+  color: yellow;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+/* Images area styling */
+.news-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.news-images img {
+  width: 45%;
+  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
+}
+
+.news-images img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive: For phones and small screens */
+@media (max-width: 768px) {
+  .news-images img {
+    width: 90%;
+  }
+}
+
+/*Gallery Revised*/
+/* --- Gallery Section --- */
+#gallery {
+  background-color: #222;
+  color: white;
+  padding: 80px 5vw;
+  text-align: center;
+}
+
+#gallery h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: gold;
+}
+
+/* Container fits perfectly across the screen */
+.gallery-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Each item takes up equal space and stays proportional */
+.gallery-item {
+  flex: 1 1 calc(25% - 20px); /* 4 per row desktop */
+  max-width: 350px;
+  min-width: 220px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Soft golden hover glow */
+.gallery-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 215, 0, 0.1);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+/* Image style */
+.gallery-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #111;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Image hover glow and zoom */
+.gallery-item:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+/* Title styling */
+.gallery-item h3 {
+  color: gold;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  transition: color 0.3s ease;
+}
+
+/* Title hover glow */
+.gallery-item:hover h3 {
+  color: #ffec8b;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+/* --- Gallery Popup --- */
+.desc-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.desc-content {
+  background: #fff8dc;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+.desc-content h3 {
+  color: #b58900;
+  margin-bottom: 10px;
+}
+
+.desc-content p {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* New close button near description */
+.close-btn {
+  margin-top: 20px;
+  padding: 8px 18px;
+  background: #b58900;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.close-btn:hover {
+  background: #d4a017;
+}
+
+
+/* --- Responsive Design --- */
+
+/* Tablet (2 per row) */
+@media (max-width: 1024px) {
+  .gallery-item {
+    flex: 1 1 calc(45% - 20px);
+    max-width: 400px;
+  }
+}
+
+/* Mobile Portrait (1 per row) */
+@media (max-width: 768px) and (orientation: portrait) {
+  .gallery-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery-item {
+    flex: 1 1 100%;
+    width: 90%;
+    max-width: 400px;
+  }
+}
+
+/* Mobile Landscape (2 per row) */
+@media (max-width: 768px) and (orientation: landscape) {
+  .gallery-item {
+    flex: 1 1 calc(50% - 20px);
+    max-width: 300px;
+  }
+}
+
+/* Sacraments Revised */
+/* --- Sacraments Section --- */
+#sacraments {
+  background-color: #222;
+  color: #222;
+  padding: 80px 5vw;
+  text-align: center;
+}
+
+#sacraments h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #b58900;
+}
+
+/* Flexbox layout for sacraments */
+.sacraments-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 25px;
+  max-width: 100%;
+}
+
+/* Each sacrament box */
+.sacrament-item {
+  flex: 1 1 calc(25% - 25px);
+  max-width: 300px;
+  min-width: 220px;
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.sacrament-item:hover {
+  transform: translateY(-5px);
+  background: #fff8dc;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+/* Sacrament images */
+.sacrament-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover zoom on image */
+.sacrament-item:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+/* Title under each image */
+.sacrament-item h3 {
+  margin-top: 10px;
+  color: #b58900;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.sacrament-item:hover h3 {
+  color: #ffcc00;
+}
+
+/* --- Sacrament Popup --- */
+.sacrament-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+}
+
+.sacrament-content {
+  background-color: #fff;
+  color: #222;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 85%;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  animation: popIn 0.3s ease;
+}
+
+.sacrament-content h3 {
+  color: #b58900;
+  margin-bottom: 10px;
+}
+
+.sacrament-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Reuse same keyframes animation */
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover {
+  color: gold;
+}
+
+/* --- Sacrament Modal Container --- */
+.sacrament-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* ⬅️ this ensures it's above your header */
+}
+
+/* --- Sacrament Popup Box --- */
+.sacrament-content {
+  position: relative;
+  background: #fff8dc;
+  padding: 30px 35px;
+  border-radius: 14px;
+  max-width: 650px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+  margin-top: 20px; /* ⬅️ optional: gives breathing room below header */
+}
+
+/* --- Inside Close Button ("×") --- */
+.close-inside {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-weight: bold;
+}
+
+.close-inside:hover {
+  color: #b58900;
+}
+
+/* --- Sacrament Texts --- */
+.sacrament-content h3 {
+  color: #b58900;
+  margin-top: 10px;
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+}
+
+.sacrament-content p {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.sacrament-content h4 {
+  margin-top: 20px;
+  color: #b58900;
+  font-size: 1.1rem;
+}
+
+.sacrament-content ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.sacrament-content ul li {
+  background: #fff2b2;
+  border-left: 5px solid #b58900;
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+
+/* --- Responsive Design --- */
+
+/* Tablet: 2 per row */
+@media (max-width: 1024px) {
+  .sacrament-item {
+    flex: 1 1 calc(45% - 20px);
+    max-width: 400px;
+  }
+}
+
+/* Mobile Portrait: 1 per row */
+@media (max-width: 768px) and (orientation: portrait) {
+  .sacraments-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sacrament-item {
+    flex: 1 1 100%;
+    width: 90%;
+    max-width: 400px;
+  }
+}
+
+/* Mobile Landscape: 2 per row */
+@media (max-width: 768px) and (orientation: landscape) {
+  .sacrament-item {
+    flex: 1 1 calc(50% - 20px);
+    max-width: 300px;
+  }
+}
+
+/* --- Sacrament Popup Additions --- */
+.sacrament-content h4 {
+  margin-top: 20px;
+  color: #b58900;
+  font-size: 1.1rem;
+}
+
+.sacrament-content ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.sacrament-content ul li {
+  background: #fff8dc;
+  border-left: 4px solid #b58900;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Info Revised */
+/* --- More Info Section Styling (natural image size) --- */
+.info-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.info-box {
+  background: #222;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(255, 215, 0, 0.3);
+}
+
+.info-img {
+  display: block;
+  width: 100%;
+  height: auto; /* maintain natural height */
+  border-bottom: 2px solid #f2c200;
+  border-radius: 12px 12px 0 0;
+}
+
+.info-box h3 {
+  margin: 0;
+  padding: 15px;
+  background-color: #111;
+  font-size: 1.2rem;
+  color: #f2c200;
+  border-top: 1px solid #f2c200;
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+  .info-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-box {
+    width: 90%;
+  }
+}
